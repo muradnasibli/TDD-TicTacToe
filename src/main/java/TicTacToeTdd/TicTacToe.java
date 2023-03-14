@@ -83,7 +83,7 @@ public class TicTacToe {
     private boolean isDraw() {
         for (int x = 0; x < SIZE; x++) {
             for (int y = 0; y < SIZE; y++) {
-                if (board[x][y] == '\0') {
+                if (board[x][y] == '-') {
                     return false;
                 }
             }
