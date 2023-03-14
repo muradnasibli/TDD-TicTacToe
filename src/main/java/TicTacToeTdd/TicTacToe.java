@@ -19,7 +19,7 @@ public class TicTacToe {
         lastPlayer = nextPlayer();
         setBox(x, y, lastPlayer);
 
-        if (isWin()){
+        if (isWin()) {
             return lastPlayer + " is the winner";
         }
 
@@ -64,11 +64,18 @@ public class TicTacToe {
             if (board[0][i] + board[1][i] + board[2][i]
                     == playerTotal) {
                 return true;
-            }
-            else if(board[row][0] + board[row][1] + board[row][2]
-                    == playerTotal){
+            } else if (board[row][0] + board[row][1] + board[row][2]
+                    == playerTotal) {
                 return true;
             }
+        }
+
+        if (board[0][0] + board[1][1] + board[2][2]
+                == playerTotal) {
+            return true;
+        } else if (board[0][2] + board[1][1] + board[2][0]
+                == playerTotal) {
+            return true;
         }
         return false;
     }
