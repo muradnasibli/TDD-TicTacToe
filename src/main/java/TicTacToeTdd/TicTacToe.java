@@ -59,8 +59,13 @@ public class TicTacToe {
 
     private boolean isWin() {
         int playerTotal = lastPlayer * 3;
+        char leftTopBottomDiagonal = '\0';
+        char rightTopBottomDiagonal = '\0';
 
         for (int i = 0, row = 0; i < SIZE; i++, row++) {
+            leftTopBottomDiagonal += board[i][i];
+            rightTopBottomDiagonal += board[i][SIZE - i - 1];
+
             if (board[0][i] + board[1][i] + board[2][i]
                     == playerTotal) {
                 return true;
@@ -70,13 +75,12 @@ public class TicTacToe {
             }
         }
 
-        if (board[0][0] + board[1][1] + board[2][2]
-                == playerTotal) {
+        if (leftTopBottomDiagonal == playerTotal) {
             return true;
-        } else if (board[0][2] + board[1][1] + board[2][0]
-                == playerTotal) {
+        } else if (rightTopBottomDiagonal == playerTotal) {
             return true;
         }
+
         return false;
     }
 }
